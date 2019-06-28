@@ -1,0 +1,15 @@
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\bin\Debug\WpfTreeView.exe.config
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\bin\Debug\WpfTreeView.exe
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\bin\Debug\WpfTreeView.pdb
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\obj\Debug\WpfTreeView.csprojAssemblyReference.cache
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\obj\Debug\MainWindow.g.cs
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\obj\Debug\App.g.cs
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\obj\Debug\WpfTreeView_MarkupCompile.cache
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\obj\Debug\WpfTreeView_MarkupCompile.lref
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\obj\Debug\MainWindow.baml
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\obj\Debug\WpfTreeView.g.resources
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\obj\Debug\WpfTreeView.Properties.Resources.resources
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\obj\Debug\WpfTreeView.csproj.GenerateResource.cache
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\obj\Debug\WpfTreeView.csproj.CoreCompileInputs.cache
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\obj\Debug\WpfTreeView.exe
+C:\Users\3D Infotech.3DCA-LY520-12\Desktop\Git projects\WpfTreeView\WpfTreeView\obj\Debug\WpfTreeView.pdb
