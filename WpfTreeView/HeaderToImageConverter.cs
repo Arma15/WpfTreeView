@@ -6,7 +6,6 @@ using System.Windows.Media.Imaging;
 
 namespace WpfTreeView
 {
-
     /// <summary>
     /// Converts a full path to a specific image type of a drive file/folder
     /// </summary>
