@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -30,7 +28,7 @@ namespace WpfTreeView
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Get every logical drive on the machine
-            foreach (var drive in Directory.GetLogicalDrives())
+            foreach (var drive in System.IO.Directory.GetLogicalDrives())
             {
                 // Create a new item for it
                 var item = new TreeViewItem()
@@ -86,7 +84,7 @@ namespace WpfTreeView
             // ignoring any issues doing so
             try
             {
-                var dirs = Directory.GetDirectories(fullPath);
+                var dirs = System.IO.Directory.GetDirectories(fullPath);
                 if (dirs.Length > 0)
                     directories.AddRange(dirs);
 
@@ -126,7 +124,7 @@ namespace WpfTreeView
             // ignoring any issues doing so
             try
             {
-                var fs = Directory.GetFiles(fullPath);
+                var fs = System.IO.Directory.GetFiles(fullPath);
                 if (fs.Length > 0)
                     files.AddRange(fs);
 
