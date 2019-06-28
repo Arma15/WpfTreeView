@@ -1,19 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfTreeView
 {
@@ -46,9 +35,9 @@ namespace WpfTreeView
                 // Create a new item for it
                 var item = new TreeViewItem()
                 {
-                    // Set the header and path
+                    // Set the header
                     Header = drive,
-                    // and teh full path
+                    // and the full path
                     Tag = drive
                 };
 
@@ -63,9 +52,18 @@ namespace WpfTreeView
 
             }
         }
+      #endregion
 
+        #region Folder Expanded
+
+        /// <summary>
+        /// When a folder is expanded, find the sub folder files
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Folder_Expanded(object sender, RoutedEventArgs e)
         {
+            #region Initial checks
             var item = (TreeViewItem)sender;
 
             // If the item only contains the dummy data
@@ -77,6 +75,9 @@ namespace WpfTreeView
 
             // Get full path
             var fullPath = (string)item.Tag;
+            #endregion
+
+            #region Get Folders
 
             // Create blank list for directories
             var directories = new List<string>();
@@ -95,13 +96,94 @@ namespace WpfTreeView
             // For each directory...
             directories.ForEach(directoryPath =>
             {
-                var subitem = new TreeViewItem();
+                // Create directory item
+                var subitem = new TreeViewItem()
+                {
+                    // Set header as  folder name
+                    Header = GetFileFolderName(directoryPath),
+                    // Add tasg as full path
+                    Tag = directoryPath
+                };
+
+                // Add dummy item so we can expand folder
+                subitem.Items.Add(null);
+
+                // Handle expanding
+                subitem.Expanded += Folder_Expanded;
+
+                // Add this item to the parent
+                item.Items.Add(subitem);
+
             });
+            #endregion
+
+            #region Get Files
+
+            // Create blank list for files
+            var files = new List<string>();
+
+            // Try and get files from the folder
+            // ignoring any issues doing so
+            try
+            {
+                var fs = Directory.GetFiles(fullPath);
+                if (fs.Length > 0)
+                    files.AddRange(fs);
+
+            }
+            catch { }
+
+            // For each file...
+            files.ForEach(filePath =>
+            {
+                // Create file item
+                var subitem = new TreeViewItem()
+                {
+                    // Set header as file name
+                    Header = GetFileFolderName(filePath),
+                    // Add tasg as full path
+                    Tag = filePath
+                };
+
+                // Add this item to the parent
+                item.Items.Add(subitem);
+
+            });
+
+            #endregion
 
         }
 
         #endregion
 
+        #region Helpers
+        /// <summary>
+        /// Find the file or folder name from a full path
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <returns></returns>
+        public static string GetFileFolderName(string path)
+        {
+            // If we have no path, return empty
+            if(string.IsNullOrEmpty(path))
+            {
+                return string.Empty;
+            }
+
+            // Make all slashes back slashes
+            var normalizedPath = path.Replace('/', '\\');
+
+            // Find the last backslash in the path
+            var lastIndex = normalizedPath.LastIndexOf('\\');
+
+            // If we don't find a backslash, return path itself
+            if (lastIndex <= 0)
+                return path;
+
+            // Return the name after the last backslash
+            return path.Substring(lastIndex + 1);
+        }
+        #endregion
 
 
     }
